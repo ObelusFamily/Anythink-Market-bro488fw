@@ -144,6 +144,9 @@ router.post("/", auth.required, function(req, res, next) {
         return res.sendStatus(401);
       }
 
+      if(!req.body.item.image) {
+        req.body.item.image="https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png"
+      }
       var item = new Item(req.body.item);
 
       item.seller = user;
